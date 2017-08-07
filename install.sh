@@ -78,6 +78,9 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 nvm use node
 
+sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/node" "/usr/local/bin/node"
+sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/npm" "/usr/local/bin/npm"
+
 sed -i 's/aadDirName/'${A_AD_DIRECTORY_NAME}'/' aad-login.js
 sed -i 's/aadClientID/'${A_AD_CLIENT_ID}'/' aad-login.js
 
