@@ -81,7 +81,7 @@ nvm use node
 sed -i 's/aadDirName/'${A_AD_DIRECTORY_NAME}'/' aad-login.js
 sed -i 's/aadClientID/'${A_AD_CLIENT_ID}'/' aad-login.js
 
-ln -s aad-login /usr/local/bin/aad-login
+cp aad-login /usr/local/bin/aad-login
 
 npm install
 
