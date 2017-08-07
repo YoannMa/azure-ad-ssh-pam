@@ -83,6 +83,6 @@ sed -i 's/aadClientID/'${A_AD_CLIENT_ID}'/' aad-login.js
 
 cp aad-login /usr/local/bin/aad-login
 
-npm install
+npm install -s
 
 sed -i '1s/.*/auth sufficient pam_exec.so expose_authtok \/usr\/local\/bin\/aad-login/' /etc/pam.d/common-auth
