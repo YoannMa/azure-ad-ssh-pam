@@ -12,5 +12,5 @@
 /usr/bin/getent passwd ${PAM_USER} || useradd -m ${PAM_USER}
 
 read password
-node /opt/aad-login/aad-login.js ${PAM_USER} ${password}
+node /opt/aad-login/aad-login.js ${PAM_USER} ${password} >/var/log/aad-login.log 2>&1
 exit $?
