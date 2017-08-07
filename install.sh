@@ -70,12 +70,12 @@ echo "\n\n Starting setting up your Azure Active Directory Authentication on you
 
 #cp -f aad-login.js.orig aad-login.js
 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+(set -x; curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash >/dev/null )
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-nvm install node
+(set -x; nvm install node >/dev/null )
 nvm use node
 
 sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/node" "/usr/local/bin/node"
@@ -86,6 +86,6 @@ sed -i 's/aadClientID/'${A_AD_CLIENT_ID}'/' aad-login.js
 
 cp aad-login /usr/local/bin/aad-login
 
-npm install -s
+(set -x; npm install >/dev/null)
 
 sed -i '1s/.*/auth sufficient pam_exec.so expose_authtok \/usr\/local\/bin\/aad-login/' /etc/pam.d/common-auth
